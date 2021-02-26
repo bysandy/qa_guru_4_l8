@@ -32,6 +32,7 @@ public class PracticeFormTestJavaFaker extends TestBase {
         String state = "NCR";
         String city = "Gurgaon";
         String subject = "Chemistry";
+        String picture =  "IMG_1285.jpg";
 
         open("https://demoqa.com/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
@@ -55,7 +56,8 @@ public class PracticeFormTestJavaFaker extends TestBase {
         $("#hobbiesWrapper").$(byText(hobby2)).click();
         $("#hobbiesWrapper").$(byText(hobby3)).click();
         // Image upload from local drive
-        $("#uploadPicture").uploadFile(new File("src/test/resourses/IMG_1285.jpg"));
+        $("#uploadPicture").uploadFromClasspath("img/" + picture);
+//        $("#uploadPicture").uploadFile(new File("src/test/resourses/IMG_1285.jpg"));
         // Set Address and State
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
