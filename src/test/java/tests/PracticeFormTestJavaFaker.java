@@ -81,4 +81,37 @@ public class PracticeFormTestJavaFaker extends TestBase {
         // Close the form
         $("#closeLargeModal").click();
     }
+    @Test
+    void negativeTest() {
+        Faker faker = new Faker();
+
+        // Variables
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String email = faker.internet().emailAddress();
+        String phone = getRandomPhone();
+        String gender = "Male";
+        String month = "May";
+        String year = "1977";
+        String day = "13";
+        String hobby1 = "Sports";
+        String hobby2 = "Reading";
+        String hobby3 = "Music";
+        String currentAddress = faker.address().fullAddress();
+        String state = "NCR";
+        String city = "Gurgaon";
+        String subject = "Chemistry";
+        String picture = "1.png";
+
+        open("https://demoqa.com/automation-practice-form");
+        $(".main-header").shouldHave(text("Practice Form"));
+
+        // Verify results
+
+        $x("//td[text()='Student Name']").parent().shouldHave(text(firstName + " " + lastName));
+
+
+        // Close the form
+        $("#closeLargeModal").click();
+    }
 }
