@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+import static helpers.AttachmentsHelper.*;
 
 public class TestBase {
     @BeforeAll
@@ -26,13 +27,13 @@ public class TestBase {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
  //       }
     }
-//    @AfterEach
-//    public void afterEach() {
-//        attachScreenshot("Last screenshot");
-//        attachPageSource();
-//        attachAsText("Browser console logs", getConsoleLogs());
-//        if(System.getProperty("video_storage") != null)
-//            attachVideo();
-//        closeWebDriver();
-//    }
+    @AfterEach
+    public void afterEach() {
+        attachScreenshot("Last screenshot");
+        attachPageSource();
+        attachAsText("Browser console logs", getConsoleLogs());
+        if(System.getProperty("video_storage") != null)
+            attachVideo();
+        closeWebDriver();
+    }
 }
