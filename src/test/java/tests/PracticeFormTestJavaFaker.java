@@ -3,8 +3,6 @@ package tests;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -32,7 +30,7 @@ public class PracticeFormTestJavaFaker extends TestBase {
         String state = "NCR";
         String city = "Gurgaon";
         String subject = "Chemistry";
-        String picture =  "IMG_1285.jpg";
+        String picture = "1.png";
 
         open("https://demoqa.com/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
@@ -57,7 +55,6 @@ public class PracticeFormTestJavaFaker extends TestBase {
         $("#hobbiesWrapper").$(byText(hobby3)).click();
         // Image upload from local drive
         $("#uploadPicture").uploadFromClasspath("img/" + picture);
-//        $("#uploadPicture").uploadFile(new File("src/test/resourses/IMG_1285.jpg"));
         // Set Address and State
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
@@ -77,7 +74,7 @@ public class PracticeFormTestJavaFaker extends TestBase {
         $x("//td[text()='Date of Birth']").parent().shouldHave(text(day + " " + month + "," + year));
         $x("//td[text()='Subjects']").parent().shouldHave(text(subject));
         $x("//td[text()='Hobbies']").parent().shouldHave(text(hobby1 + ", " + hobby2 + ", " + hobby3));
-        $x("//td[text()='Picture']").parent().shouldHave(text("IMG_1285.jpg"));
+        $x("//td[text()='Picture']").parent().shouldHave(text(picture));
         $x("//td[text()='Address']").parent().shouldHave(text(currentAddress));
         $x("//td[text()='State and City']").parent().shouldHave(text(state + " " + city));
 

@@ -23,6 +23,7 @@ public class PracticeFormTestsRandomUtils extends TestBase {
     String hobby2 = "Reading";
     String hobby3 = "Music";
     String currentAddress = getRandomMessage(25, 30);
+    String picture = "1.png";
     String state = "NCR";
     String city = "Gurgaon";
     String subject = "Chemistry";
@@ -51,7 +52,7 @@ public class PracticeFormTestsRandomUtils extends TestBase {
         $("#hobbiesWrapper").$(byText(hobby2)).click();
         $("#hobbiesWrapper").$(byText(hobby3)).click();
         // Image upload from local drive
-        $("#uploadPicture").uploadFile(new File("src/test/resourses/IMG_1285.jpg"));
+        $("#uploadPicture").uploadFromClasspath("img/" + picture);
         // Set Address and State
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
@@ -71,7 +72,7 @@ public class PracticeFormTestsRandomUtils extends TestBase {
         $x("//td[text()='Date of Birth']").parent().shouldHave(text(day + " " + month + "," + year));
         $x("//td[text()='Subjects']").parent().shouldHave(text(subject));
         $x("//td[text()='Hobbies']").parent().shouldHave(text(hobby1 + ", " + hobby2 + ", " + hobby3));
-        $x("//td[text()='Picture']").parent().shouldHave(text("IMG_1285.jpg"));
+        $x("//td[text()='Picture']").parent().shouldHave(text(picture));
         $x("//td[text()='Address']").parent().shouldHave(text(currentAddress));
         $x("//td[text()='State and City']").parent().shouldHave(text(state + " " + city));
 
