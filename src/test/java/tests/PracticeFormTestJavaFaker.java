@@ -105,12 +105,8 @@ public class PracticeFormTestJavaFaker extends TestBase {
 
         open("https://demoqa.com/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
-
         // Verify results
-
         $x("//td[text()='Student Name']").parent().shouldHave(text(firstName + " " + lastName));
-
-
         // Close the form
         $("#closeLargeModal").click();
     }
