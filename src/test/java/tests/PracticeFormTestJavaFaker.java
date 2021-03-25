@@ -83,7 +83,7 @@ public class PracticeFormTestJavaFaker extends TestBase {
         $("#closeLargeModal").click();
     }
     @Test
-    @Tag('negative')
+    @Tag("negative")
     void negativeTest() {
         Faker faker = new Faker();
 
