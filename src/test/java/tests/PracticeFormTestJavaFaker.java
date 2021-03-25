@@ -1,6 +1,7 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -82,6 +83,7 @@ public class PracticeFormTestJavaFaker extends TestBase {
         $("#closeLargeModal").click();
     }
     @Test
+    @Tag('negative')
     void negativeTest() {
         Faker faker = new Faker();
 
